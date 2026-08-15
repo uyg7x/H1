@@ -1,0 +1,28 @@
+# Core Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+
+# Data Validation & Settings
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# HTTP Client for API calls
+httpx==0.26.0
+
+# Async Support
+anyio==4.3.0
+
+# Environment variables
+python-dotenv==1.0.0
+
+# For geospatial calculations (optional - for advanced routing)
+geopy==2.4.1
+
+# For JSON handling
+orjson==3.9.15
+
+# Development
+pytest==7.4.3
+black==24.2.0
+ruff==0.1.14
