@@ -43,7 +43,7 @@ interface TrendLineChartProps {
 const CustomTooltip: React.FC<any> = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
-    const riskLevel = data.risk_level || 'low';
+    const riskLevel: RiskLevel = data.risk_level || 'low';
     const colors = RISK_COLORS[riskLevel];
 
     return (
@@ -76,7 +76,7 @@ const getRiskColor = (riskLevel?: RiskLevel) => {
 
 const CustomDot: React.FC<any> = (props: any) => {
   const { cx, cy, payload, value, index } = props;
-  const riskLevel = payload.risk_level || 'low';
+  const riskLevel: RiskLevel = payload.risk_level || 'low';
   const colors = RISK_COLORS[riskLevel];
 
   return (
@@ -106,7 +106,7 @@ const CustomDot: React.FC<any> = (props: any) => {
 
 const CustomActiveDot: React.FC<any> = (props: any) => {
   const { cx, cy, payload } = props;
-  const riskLevel = payload.risk_level || 'low';
+  const riskLevel: RiskLevel = payload.risk_level || 'low';
   const colors = RISK_COLORS[riskLevel];
 
   return (
@@ -464,3 +464,5 @@ export const MultiLineChart: React.FC<MultiLineChartProps> = ({
 
 // All exports are inline above (export default TrendLineChart + export const DailyTrendChart / HourlyTrendChart / MultiLineChart).
 // No trailing export block — keeps the file duplicate-free.
+
+export default TrendLineChart;

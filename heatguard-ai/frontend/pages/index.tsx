@@ -3,7 +3,7 @@
 // Redirect to the new 5-tab dashboard
 // ============================================================================
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 const HomePage: React.FC = () => {

@@ -39,7 +39,7 @@ interface TempBarChartProps {
 const CustomTooltip: React.FC<any> = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
-    const riskLevel = data.risk_level || 'low';
+    const riskLevel: RiskLevel = data.risk_level || 'low';
     const colors = RISK_COLORS[riskLevel];
 
     return (
@@ -72,7 +72,7 @@ const getRiskColor = (riskLevel?: RiskLevel) => {
 
 const CustomBar: React.FC<any> = (props: any) => {
   const { x, y, width, height, fill, payload } = props;
-  const riskLevel = payload.risk_level || 'low';
+  const riskLevel: RiskLevel = payload.risk_level || 'low';
   const colors = RISK_COLORS[riskLevel];
 
   return (

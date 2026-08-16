@@ -99,7 +99,7 @@ const HeatExposureTimer: React.FC<HeatExposureTimerProps> = ({ exposureMinutes, 
         </div>
         <div className="flex items-center space-x-2">
           <span className="text-xl">🌡️</span>
-          <span className="font-medium text-text-secondary">Estimated exposure at >105°F</span>
+          <span className="font-medium text-text-secondary">Estimated exposure at &gt;105°F</span>
         </div>
         <div className={`pt-2 px-3 py-1 rounded-lg text-white font-bold text-center text-sm`} 
              style={{ backgroundColor: color }}>
@@ -138,7 +138,7 @@ const heatZoneRadius = 450
 // ============================================================================
 // Cooling Shelter Data (Mock - replace with real data)
 // ============================================================================
-const coolingShelters = [
+const coolingShelters: { position: [number, number]; name: string; temperature: string; distance: string; hours: string }[] = [
   {
     position: [33.4500, -112.0700],
     name: 'Phoenix Public Library',
@@ -163,7 +163,7 @@ const coolingShelters = [
 ]
 
 // Emergency locations (Hospitals)
-const emergencyLocations = [
+const emergencyLocations: { position: [number, number]; name: string; type: string; temperature: string; capacity: string }[] = [
   {
     position: [33.4540, -112.0660],
     name: 'Phoenix General Hospital',

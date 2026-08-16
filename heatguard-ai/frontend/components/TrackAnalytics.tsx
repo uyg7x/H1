@@ -279,7 +279,13 @@ const TrackAnalytics: React.FC = () => {
 
       {/* Zone Comparison */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <ZoneComparisonChart zones={zones} />
+        <ZoneComparisonChart
+          zones={zones.map(z => ({
+            name: z.name,
+            temperature: z.avg_temperature_f,
+            riskLevel: z.risk_level,
+          }))}
+        />
         <MultiRadarChart series={multiRadarData} title="Track Comparison" subtitle="Multi-dimensional performance analysis" />
       </div>
 

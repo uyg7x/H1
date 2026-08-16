@@ -4,7 +4,7 @@
 // ==========================================================================
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { AppState, ChatMessage, EmergencyAlert, RiskLevel } from '../lib/types';
+import { AppState, ChatMessage, EmergencyAlert, RiskLevel, ApiSettings } from '../lib/types';
 import {
   mockTemperatureData,
   mockHeatZones,
@@ -47,6 +47,12 @@ const initialState: AppState = {
   },
   isLoading: false,
   error: null,
+  settings: {
+    api_key: '',
+    api_url: 'http://localhost:8001',
+    refresh_rate: 30,
+    use_mock_data: true,
+  },
 };
 
 // ==========================================================================
@@ -80,6 +86,10 @@ interface AppContextType extends AppState {
   // Loading & Error
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
+
+  // API Settings
+  settings: ApiSettings;
+  updateSettings: (settings: Partial<ApiSettings>) => void;
   
   // Analytics
   incrementQueryCount: () => void;
@@ -217,6 +227,14 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   }, []);
 
   // ==========================================================================
+  // API Settings
+  // ==========================================================================
+
+  const updateSettings = useCallback((newSettings: Partial<ApiSettings>) => {
+    setState(prev => ({ ...prev, settings: { ...prev.settings, ...newSettings } }));
+  }, []);
+
+  // ==========================================================================
   // Analytics
   // ==========================================================================
 
@@ -330,6 +348,10 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     // Loading & Error
     setLoading,
     setError,
+
+    // API Settings
+    settings: state.settings,
+    updateSettings,
     
     // Analytics
     incrementQueryCount,

@@ -375,6 +375,188 @@ body {
 }
 
 /* ============================================================================
+   Glassmorphism Design System (Geospatial Command Center)
+   ============================================================================ */
+
+.glass {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.72) 0%,
+    rgba(15, 23, 42, 0.55) 100%
+  );
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: linear-gradient(
+    135deg,
+    rgba(2, 6, 23, 0.85) 0%,
+    rgba(15, 23, 42, 0.75) 100%
+  );
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-chip {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-chip-active {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Frosted HUD panel with subtle animated border sheen */
+.hud-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.hud-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  animation: sheen 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sheen {
+  0%, 60% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Heat trap glow (polygons) */
+.heat-trap-pulse {
+  animation: heatPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes heatPulse {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.35)); }
+  50% { filter: drop-shadow(0 0 18px rgba(239, 68, 68, 0.75)); }
+}
+
+/* Shelter marker pulse ring */
+.shelter-pin {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.6);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.shelter-pin::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(56, 189, 248, 0.6);
+  animation: ringPulse 2s ease-out infinite;
+}
+
+@keyframes ringPulse {
+  0% { transform: scale(0.7); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Start / end waypoint pins */
+.waypoint-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.waypoint-pin > span {
+  transform: rotate(45deg);
+}
+
+/* Route dash animation (safe route "flow") */
+.route-dash {
+  stroke-dasharray: 1 14;
+  animation: dashFlow 1.2s linear infinite;
+}
+
+@keyframes dashFlow {
+  to { stroke-dashoffset: -15; }
+}
+
+/* Dark glass Leaflet popups */
+.leaflet-popup-content-wrapper {
+  background: rgba(2, 6, 23, 0.92) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(2, 6, 23, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.leaflet-popup-content b,
+.leaflet-popup-content strong {
+  color: #ffffff !important;
+}
+
+.leaflet-popup-content p,
+.leaflet-popup-content div {
+  color: #cbd5e1 !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: #94a3b8 !important;
+}
+
+.leaflet-popup-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Map attribution dark glass */
+.leaflet-control-attribution {
+  background: rgba(2, 6, 23, 0.6) !important;
+  backdrop-filter: blur(8px);
+  color: #64748b !important;
+  border-radius: 8px 0 0 0;
+}
+
+.leaflet-control-attribution a {
+  color: #94a3b8 !important;
+}
+
+/* ============================================================================
    Responsive Adjustments
    ============================================================================ */
 

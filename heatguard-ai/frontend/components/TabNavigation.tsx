@@ -83,7 +83,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({ className = '' }) => {
   const tabs = [
     {
       id: 'map' as const,
-      label: 'Live Map',
+      label: 'Geospatial Command',
       icon: '🗺️',
       badge: emergencyAlerts.length > 0 ? emergencyAlerts.length : undefined,
     },
@@ -94,18 +94,18 @@ const TabNavigation: React.FC<TabNavigationProps> = ({ className = '' }) => {
     },
     {
       id: 'ai' as const,
-      label: 'AI Command',
+      label: 'AI Autopilot',
       icon: '🤖',
       badge: chatMessages.length > 0 ? chatMessages.length : undefined,
     },
     {
       id: 'analytics' as const,
-      label: 'Analytics',
+      label: 'Temporal Analytics',
       icon: '📈',
     },
     {
       id: 'settings' as const,
-      label: 'Settings',
+      label: 'System Telemetry',
       icon: '⚙️',
     },
   ];

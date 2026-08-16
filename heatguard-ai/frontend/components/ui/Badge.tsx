@@ -16,6 +16,7 @@ interface BaseBadgeProps {
   className?: string;
   variant?: 'solid' | 'outline' | 'ghost' | 'subtle';
   size?: 'sm' | 'md' | 'lg';
+  style?: React.CSSProperties;
 }
 
 // ==========================================================================
@@ -27,6 +28,7 @@ const Badge: React.FC<BaseBadgeProps> = ({
   className = '',
   variant = 'solid',
   size = 'md',
+  style,
 }) => {
   // Get size classes
   const getSizeClasses = () => {
@@ -52,6 +54,7 @@ const Badge: React.FC<BaseBadgeProps> = ({
   return (
     <span 
       className={`inline-flex items-center font-medium rounded-full ${getSizeClasses()} ${getVariantClasses()} ${className}`}
+      style={style}
     >
       {children}
     </span>

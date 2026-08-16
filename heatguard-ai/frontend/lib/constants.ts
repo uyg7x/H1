@@ -184,6 +184,12 @@ export const THEME = {
       secondary: '#475569',
       muted: '#64748b',
     },
+    heat: {
+      extreme: '#dc2626',
+      high: '#ea580c',
+      moderate: '#f59e0b',
+      low: '#10b981',
+    },
   },
   LIGHT: {
     background: {

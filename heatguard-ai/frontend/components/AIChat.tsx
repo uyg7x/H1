@@ -7,7 +7,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useAppContext } from '../context/AppContext';
 import { RISK_COLORS, quickActions } from '../lib/mockData';
 import { ChatMessage, RiskLevel } from '../lib/types';
-import Badge, { RiskBadge, StatusBadge } from './ui/Badge';
+import Badge, { RiskBadge, StatusBadge, TemperatureBadge } from './ui/Badge';
 import ProgressBar, { CircularProgress } from './ui/ProgressBar';
 
 // ==========================================================================

@@ -288,3 +288,4 @@ export const AnimatedProgressBar: React.FC<AnimatedProgressBarProps> = ({
 // ==========================================================================
 
 export default ProgressBar;
+export { CircularProgress };

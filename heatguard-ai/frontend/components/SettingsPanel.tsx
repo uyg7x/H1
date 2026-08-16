@@ -9,7 +9,7 @@ import { Key, Server, RefreshCw, CheckCircle, XCircle, Code, BookOpen } from 'lu
 import { mockTemperatureData, mockHeatZones, mockHourlyForecast, mockRoutes } from '../lib/mockData';
 
 const SettingsPanel: React.FC = () => {
-  const { settings, updateSettings, heatData } = useAppContext();
+  const { settings, updateSettings } = useAppContext();
   const [apiKeyInput, setApiKeyInput] = useState(settings.api_key || '');
   const [apiUrlInput, setApiUrlInput] = useState(settings.api_url || 'http://localhost:8001');
   const [refreshRateInput, setRefreshRateInput] = useState(settings.refresh_rate || 30);

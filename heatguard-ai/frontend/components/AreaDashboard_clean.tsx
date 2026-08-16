@@ -229,13 +229,13 @@ const AreaDashboardClean: React.FC = () => {
               </span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-400">At Risk (>95°F)</span>
+              <span className="text-sm text-gray-400">At Risk (&gt;95°F)</span>
               <span className="text-lg font-bold text-red-500">
                 {(zoneStats.extremeZones + zoneStats.highZones) * 25000}K
               </span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-400">Safe (<95°F)</span>
+              <span className="text-sm text-gray-400">Safe (&lt;95°F)</span>
               <span className="text-lg font-bold text-green-500">
                 {(zoneStats.moderateZones + zoneStats.lowZones) * 25000}K
               </span>

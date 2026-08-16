@@ -12,7 +12,8 @@ import {
   PolarRadiusAxis,
   ResponsiveContainer,
   Tooltip,
-  Legend
+  Legend,
+  Cell
 } from 'recharts';
 import { RiskLevel, RadarChartData } from '../../lib/types';
 import { RISK_COLORS } from '../../lib/mockData';
@@ -145,7 +146,7 @@ const ZoneRadarChart: React.FC<ZoneRadarChartProps> = ({
   className = '',
 }) => {
   // Find maximum value for scaling
-  const maxValue = Math.max(...data.map(item => item.fullMark), 120);
+  const maxValue = Math.max(...data.map(item => item.fullMark ?? 0), 120);
   
   // Create color mapping for each subject
   const colorMap: Record<string, string> = {};
@@ -337,7 +338,7 @@ export const MultiRadarChart: React.FC<MultiRadarChartProps> = ({
   className = '',
 }) => {
   // Find all unique subjects
-  const allSubjects = [...new Set(series.flatMap(s => s.data.map(d => d.subject)))];
+  const allSubjects = Array.from(new Set(series.flatMap(s => s.data.map(d => d.subject))));
   
   // Create combined data for each series
   const combinedData = allSubjects.map(subject => {
@@ -403,3 +404,5 @@ export const MultiRadarChart: React.FC<MultiRadarChartProps> = ({
 
 // All exports are inline above (export default ZoneRadarChart + export const ZoneComparisonChart / RiskFactorChart / MultiRadarChart).
 // No trailing export block — keeps the file duplicate-free.
+
+export default ZoneRadarChart;

@@ -153,7 +153,7 @@ export interface LineChartData {
 export interface RadarChartData {
   subject: string;
   value: number;
-  fullMark: number;
+  fullMark?: number;
 }
 
 // ==========================================================================
@@ -233,6 +233,7 @@ export interface AppState {
   };
   isLoading: boolean;
   error: string | null;
+  settings: ApiSettings;
 }
 
 export interface MapSettings {
@@ -242,6 +243,17 @@ export interface MapSettings {
   showRoute: boolean;
   zoomLevel: number;
   center: Coordinate;
+}
+
+// ==========================================================================
+// API Settings
+// ==========================================================================
+
+export interface ApiSettings {
+  api_key: string;
+  api_url: string;
+  refresh_rate: number;
+  use_mock_data: boolean;
 }
 
 // ==========================================================================
@@ -289,38 +301,3 @@ export interface AppConfig {
   };
 }
 
-// ==========================================================================
-// Export all types
-// ==========================================================================
-
-export type {
-  Coordinate as Coordinate,
-  HeatZone as HeatZone,
-  EmergencyLocation as EmergencyLocation,
-  RouteWaypoint as RouteWaypoint,
-  PlannedRoute as PlannedRoute,
-  RiskLevel as RiskLevel,
-  TemperatureData as TemperatureData,
-  ZoneTemperatureData as ZoneTemperatureData,
-  HourlyForecast as HourlyForecast,
-  DailyTemperature as DailyTemperature,
-  WeeklyTrend as WeeklyTrend,
-  RouteAnalytics as RouteAnalytics,
-  AIAnalytics as AIAnalytics,
-  TimeBasedAnalytics as TimeBasedAnalytics,
-  BarChartData as BarChartData,
-  PieChartData as PieChartData,
-  LineChartData as LineChartData,
-  RadarChartData as RadarChartData,
-  ChatMessage as ChatMessage,
-  AIAction as AIAction,
-  HeatMapResponse as HeatMapResponse,
-  RouteResponse as RouteResponse,
-  EmergencyAlert as EmergencyAlert,
-  AppState as AppState,
-  MapSettings as MapSettings,
-  ThemeColors as ThemeColors,
-  RiskColorMap as RiskColorMap,
-  APIConfig as APIConfig,
-  AppConfig as AppConfig,
-};
